@@ -105,12 +105,13 @@ class _CustomNavBar extends StatelessWidget {
                     path: '/contact',
                     isActive: currentPath == '/contact',
                   ),
-                  // const SizedBox(width: 32),
-                  // _NavLink(
-                  //   label: isArabic ? 'لوحة التحكم' : 'Dashboard',
-                  //   path: isLoggedIn ? '/admin/dashboard' : '/admin/login',
-                  //   isActive: currentPath.startsWith('/admin'),
-                  // ),
+                  if (isLoggedIn) const SizedBox(width: 32),
+                  if (isLoggedIn)
+                    _NavLink(
+                      label: isArabic ? 'لوحة التحكم' : 'Dashboard',
+                      path: '/admin/dashboard',
+                      isActive: currentPath.startsWith('/admin'),
+                    ),
                 ],
               ),
             ),
@@ -350,12 +351,13 @@ class _MobileMenu extends StatelessWidget {
                   path: '/contact',
                   isActive: currentPath == '/contact',
                 ),
-                _MobileNavItem(
-                  label: isArabic ? 'لوحة التحكم' : 'Dashboard',
-                  icon: Icons.dashboard,
-                  path: isLoggedIn ? '/admin/dashboard' : '/admin/login',
-                  isActive: currentPath.startsWith('/admin'),
-                ),
+                if (isLoggedIn)
+                  _MobileNavItem(
+                    label: isArabic ? 'لوحة التحكم' : 'Dashboard',
+                    icon: Icons.dashboard,
+                    path: '/admin/dashboard',
+                    isActive: currentPath.startsWith('/admin'),
+                  ),
               ],
             ),
           ),
